@@ -1,4 +1,5 @@
 using AlexeyRastorguevKt_41_21.Database;
+using AlexeyRastorguevKt_41_21.ServiceExtensions;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
@@ -21,6 +22,8 @@ try
 
     builder.Services.AddDbContext<StudentDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    builder.Services.AddServices();
 
     var app = builder.Build();
 
